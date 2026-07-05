@@ -9,7 +9,11 @@ export async function onRequest(context) {
   const target = `${COINGECKO}/${path}${url.search}`;
 
   const res = await fetch(target, {
-    headers: { "Accept": "application/json" },
+    method: "GET",
+    headers: {
+      "Accept": "application/json",
+      "User-Agent": "CryptFolio/1.0 cloudflare-pages",
+    },
   });
   const data = await res.json();
 
