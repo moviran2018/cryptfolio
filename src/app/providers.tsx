@@ -11,7 +11,7 @@ const config = createConfig({
   connectors: [
     metaMask(),
     coinbaseWallet({ appName: "CryptFolio" }),
-    walletConnect({ projectId: "26d8b7e7b0c7b7e7b0c7b7e7b0c7b7e7" }),
+    walletConnect({ projectId: "864d282fdc5393ba6b73c0e9b041441a" }),
   ],
   transports: {
     [mainnet.id]: http("https://eth.drpc.org"),
