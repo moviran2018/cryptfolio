@@ -3,7 +3,7 @@
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { mainnet, bsc, polygon, arbitrum, optimism, base } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { metaMask, walletConnect, coinbaseWallet } from "wagmi/connectors";
+import { injected, walletConnect, coinbaseWallet } from "wagmi/connectors";
 import { useState } from "react";
 
 const config = createConfig({

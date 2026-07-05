@@ -4,7 +4,7 @@ import { useTopCoins } from "../hooks/usePrices";
 import { useState } from "react";
 
 export default function PriceTicker() {
-  const { data: coins, isLoading } = useTopCoins(20);
+  const { data: coins, isLoading } = useTopCoins();
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   if (isLoading) return <div className="h-8 bg-[var(--bg-muted)] rounded animate-pulse" />;
