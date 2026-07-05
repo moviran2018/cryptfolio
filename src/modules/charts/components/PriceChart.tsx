@@ -47,7 +47,7 @@ export default function PriceChart({ coinId }: { coinId: string | null }) {
       lineWidth: 2,
     });
 
-    areaSeries.setData(chartData);
+    areaSeries.setData(chartData as any);
 
     chart.timeScale().fitContent();
 
