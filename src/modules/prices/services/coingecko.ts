@@ -1,11 +1,10 @@
 import type { PriceData, ChartDataPoint } from "../types";
 
-const BASE = "https://api.coingecko.com/api/v3";
+const BASE = "/api/coingecko";
 
 export async function fetchTopCoins(limit = 50): Promise<PriceData[]> {
   const res = await fetch(
-    `${BASE}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${limit}&page=1&sparkline=true&price_change_percentage=24h`,
-    { next: { revalidate: 30 } }
+    `${BASE}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${limit}&page=1&sparkline=true&price_change_percentage=24h`
   );
   if (!res.ok) throw new Error("CoinGecko failed");
   return res.json();
@@ -13,8 +12,7 @@ export async function fetchTopCoins(limit = 50): Promise<PriceData[]> {
 
 export async function fetchCoinChart(coinId: string, days: number): Promise<ChartDataPoint[]> {
   const res = await fetch(
-    `${BASE}/coins/${coinId}/market_chart?vs_currency=usd&days=${days}`,
-    { next: { revalidate: 60 } }
+    `${BASE}/coins/${coinId}/market_chart?vs_currency=usd&days=${days}`
   );
   if (!res.ok) throw new Error("Chart fetch failed");
   const data = await res.json();
