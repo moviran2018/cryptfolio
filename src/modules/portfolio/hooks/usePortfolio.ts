@@ -19,7 +19,7 @@ const DEMO_HOLDINGS: Record<string, { id: string; symbol: string; name: string; 
 export function usePortfolio() {
   const { address, isConnected } = useAccount();
   const { data: ethBalance } = useBalance({ address });
-  const { data: coins } = useTopCoins(100);
+  const { data: coins, isLoading: coinsLoading } = useTopCoins(100);
 
   const assets = useMemo(() => {
     const priceMap = new Map((coins ?? []).map((c) => [c.id, c]));
@@ -64,5 +64,5 @@ export function usePortfolio() {
     assetCount: assets.length,
   }), [assets]);
 
-  return { assets, summary, isLoading: !coins };
+  return { assets, summary, isLoading: coinsLoading };
 }

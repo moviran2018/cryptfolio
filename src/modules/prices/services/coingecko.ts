@@ -1,6 +1,6 @@
 import type { PriceData, ChartDataPoint } from "../types";
 
-const CG = "https://api.coingecko.com/api/v3";
+const CG = "/api/cg";
 
 async function fetchWithFallback(url: string): Promise<Response> {
   const res = await fetch(url, {

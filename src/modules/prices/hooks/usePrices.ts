@@ -12,7 +12,7 @@ export function useTopCoins(limit = 100) {
     staleTime: 15_000,
     retry: 3,
     retryDelay: 3_000,
-    placeholderData: (prev) => prev,
+    placeholderData: (prev: PriceData[] | undefined) => prev,
   });
 }
 
