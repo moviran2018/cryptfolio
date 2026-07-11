@@ -4,8 +4,17 @@ import { useTopCoins } from "../hooks/usePrices";
 import { useWatchlist } from "@/modules/watchlist/hooks/useWatchlist";
 
 export default function MarketOverview() {
-  const { data: coins, isLoading } = useTopCoins(10);
+  const { data: coins, isLoading, isError, error } = useTopCoins(10);
   const { has, toggle } = useWatchlist();
+
+  if (isError) {
+    return (
+      <div className="glass-card rounded-2xl p-6 text-center">
+        <p className="text-xs text-red-400">Failed to load prices</p>
+        <p className="text-[9px] text-gray-600 mt-1">Please refresh or try again later</p>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
