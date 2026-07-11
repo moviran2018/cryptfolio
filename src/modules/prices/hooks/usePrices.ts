@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchTopCoins, fetchCoinChart } from "../services";
 import type { PriceData, ChartDataPoint } from "../types";
 
-export function useTopCoins(limit = 50) {
+export function useTopCoins(limit = 100) {
   return useQuery<PriceData[]>({
     queryKey: ["top-coins", limit],
     queryFn: () => fetchTopCoins(limit),
@@ -12,6 +12,7 @@ export function useTopCoins(limit = 50) {
     staleTime: 15_000,
     retry: 3,
     retryDelay: 3_000,
+    placeholderData: (prev) => prev,
   });
 }
 

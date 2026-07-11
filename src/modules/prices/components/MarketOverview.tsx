@@ -4,7 +4,7 @@ import { useTopCoins } from "../hooks/usePrices";
 import { useWatchlist } from "@/modules/watchlist/hooks/useWatchlist";
 
 export default function MarketOverview() {
-  const { data: coins, isLoading, isError, error } = useTopCoins(10);
+  const { data: coins, isLoading, isError, error } = useTopCoins();
   const { has, toggle } = useWatchlist();
 
   if (isError) {
